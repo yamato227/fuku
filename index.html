@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>福谷山 福玄寺 | 滋賀県長浜市</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1410;
+      --paper: #f5f0e8;
+      --washi: #ede8dc;
+      --vermillion: #8b2500;
+      --gold: #9a7b2e;
+      --gold-light: #c9a84c;
+      --stone: #7a7268;
+      --border: #c8bfaa;
+      --nav-h: 64px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: var(--nav-h); }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      line-height: 1.9;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ─── ナビゲーション ─── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: var(--nav-h);
+    }
+    .nav-logo {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--vermillion); letter-spacing: 0.1em; text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; color: var(--stone);
+      text-decoration: none; letter-spacing: 0.15em;
+      transition: color 0.3s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -3px; left: 0; width: 0; height: 1px;
+      background: var(--vermillion); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--vermillion); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ハンバーガー（SP） */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); }
+    .mobile-menu {
+      display: none; position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: rgba(245,240,232,0.98);
+      border-bottom: 1px solid var(--border);
+      z-index: 99; padding: 1.5rem 2rem;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+    .mobile-menu a { font-size: 0.9rem; color: var(--ink); text-decoration: none; letter-spacing: 0.2em; }
+
+    /* ─── ヒーロー ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(245,240,232,0) 60%, var(--paper) 100%),
+        linear-gradient(135deg, #e8e0d0 0%, #d4c9b0 100%);
+    }
+    .hero-ornament {
+      position: absolute; width: 520px; height: 520px;
+      border-radius: 50%; border: 1px solid rgba(154,123,46,0.2);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+    }
+    .hero-ornament::before {
+      content: ''; position: absolute; inset: 20px;
+      border-radius: 50%; border: 1px solid rgba(154,123,46,0.15);
+    }
+    .hero-ornament::after {
+      content: ''; position: absolute; inset: 40px;
+      border-radius: 50%; border: 1px dashed rgba(154,123,46,0.1);
+    }
+    .hero-content {
+      text-align: center; position: relative; z-index: 1;
+      animation: fadeInUp 1.2s ease both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-en { font-size: 0.7rem; letter-spacing: 0.4em; color: var(--gold); margin-bottom: 1.5rem; text-transform: uppercase; }
+    .hero-mountain { font-family: 'Shippori Mincho', serif; font-size: 1rem; color: var(--stone); letter-spacing: 0.3em; margin-bottom: 0.5rem; }
+    .hero-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 800; color: var(--ink); letter-spacing: 0.15em; line-height: 1.1; margin-bottom: 2rem;
+    }
+    .hero-subtitle { font-size: 0.8rem; color: var(--stone); letter-spacing: 0.25em; margin-bottom: 3rem; }
+    .hero-divider { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 2rem; }
+    .hero-tagline { font-size: 0.85rem; color: var(--stone); letter-spacing: 0.1em; }
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: var(--stone); font-size: 0.65rem; letter-spacing: 0.2em;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+      50%      { opacity: 1;   transform: translateX(-50%) translateY(5px); }
+    }
+    .scroll-hint::before { content: ''; width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, var(--gold)); }
+
+    /* ─── セクション共通 ─── */
+    section { position: relative; z-index: 1; }
+    .section-inner { max-width: 900px; margin: 0 auto; padding: 6rem 2rem; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-label { display: block; font-size: 0.65rem; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+    .section-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 600; letter-spacing: 0.2em; color: var(--ink); margin-bottom: 1.5rem;
+    }
+    .section-rule { width: 40px; height: 1px; background: var(--vermillion); margin: 0 auto; }
+
+    /* ─── 歴史・由緒 ─── */
+    #history { background: var(--paper); }
+
+    /* 外観写真と紹介文を横並び */
+    .history-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 3.5rem;
+    }
+    .history-intro {
+      font-size: 0.92rem;
+      line-height: 2.2;
+      text-align: justify;
+    }
+    .history-intro p + p { margin-top: 1.4em; text-indent: 1em; }
+
+    /* 外観写真枠 */
+    .gaikan-frame {
+      position: relative; overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 4/3;
+      background: var(--washi);
+    }
+    .gaikan-frame img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .gaikan-frame:hover img { transform: scale(1.03); }
+    .gaikan-caption {
+      font-size: 0.72rem; color: var(--stone);
+      letter-spacing: 0.15em; text-align: center; margin-top: 0.6rem;
+    }
+
+    /* プレースホルダー共通 */
+    .photo-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.8rem;
+      color: var(--stone);
+    }
+    .ph-icon { font-size: 2.5rem; opacity: 0.35; }
+    .ph-label { font-size: 0.72rem; letter-spacing: 0.2em; opacity: 0.55; }
+
+    /* 小見出し */
+    .sub-heading {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1rem; font-weight: 600;
+      letter-spacing: 0.2em; color: var(--vermillion);
+      border-left: 3px solid var(--vermillion);
+      padding-left: 0.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* タイムライン */
+    .timeline { position: relative; max-width: 780px; margin: 0 auto; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 120px; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border) 10%, var(--border) 90%, transparent);
+    }
+    .timeline-item { display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 2.5rem; }
+    .timeline-year {
+      min-width: 110px; text-align: right;
+      font-family: 'Shippori Mincho', serif; font-size: 0.8rem;
+      color: var(--gold); letter-spacing: 0.1em; padding-top: 0.15rem;
+    }
+    .timeline-dot { flex-shrink: 0; }
+    .timeline-dot::before {
+      content: ''; display: block; width: 9px; height: 9px;
+      border-radius: 50%; background: var(--vermillion); margin-top: 0.35rem;
+    }
+    .timeline-text { font-size: 0.88rem; color: var(--ink); line-height: 1.85; }
+    .timeline-text strong {
+      display: block; font-weight: 600;
+      font-family: 'Shippori Mincho', serif; font-size: 0.95rem; margin-bottom: 0.3em;
+    }
+
+    /* 本堂内ギャラリー */
+    .hondo-gallery-wrap { margin-top: 3.5rem; }
+    .hondo-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .hondo-frame {
+      position: relative; overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 4/3;
+      background: var(--washi);
+    }
+    .hondo-frame img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .hondo-frame:hover img { transform: scale(1.03); }
+    .hondo-caption {
+      font-size: 0.72rem; color: var(--stone);
+      letter-spacing: 0.15em; text-align: center; margin-top: 0.6rem;
+    }
+
+    /* 写真差し替えガイド */
+    .photo-guide {
+      margin-top: 2.5rem;
+      padding: 1.2rem 1.5rem;
+      background: rgba(154,123,46,0.07);
+      border-left: 3px solid var(--gold);
+      font-size: 0.78rem; color: var(--stone); line-height: 1.8;
+    }
+    .photo-guide strong { color: var(--ink); font-weight: 600; }
+    .photo-guide code {
+      font-family: monospace;
+      background: rgba(0,0,0,0.06);
+      padding: 0.1em 0.4em; border-radius: 3px; font-size: 0.85em;
+    }
+
+    /* ─── 年中行事 ─── */
+    #events { background: var(--washi); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+    .event-card {
+      background: var(--paper); border: 1px solid var(--border);
+      padding: 1.8rem 1.5rem; position: relative;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .event-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; width: 3px; height: 0;
+      background: var(--vermillion); transition: height 0.4s ease;
+    }
+    .event-card:hover { box-shadow: 4px 4px 20px rgba(26,20,16,0.08); transform: translateY(-2px); }
+    .event-card:hover::before { height: 100%; }
+    .event-month { font-family: 'Shippori Mincho', serif; font-size: 2rem; font-weight: 800; color: var(--gold-light); line-height: 1; margin-bottom: 0.6rem; }
+    .event-name { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+    .event-desc { font-size: 0.78rem; color: var(--stone); line-height: 1.7; }
+
+    /* ─── アクセス ─── */
+    #access { background: var(--paper); }
+    .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .access-info dt { font-size: 0.7rem; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 0.4rem; margin-top: 1.8rem; }
+    .access-info dt:first-child { margin-top: 0; }
+    .access-info dd { font-size: 0.9rem; color: var(--ink); line-height: 1.8; }
+    .map-container { border: 1px solid var(--border); overflow: hidden; aspect-ratio: 4/3; }
+    .map-container iframe { width: 100%; height: 100%; display: block; filter: sepia(0.2) contrast(0.95); }
+
+    /* ─── フッター ─── */
+    footer {
+      background: var(--ink); color: var(--border);
+      text-align: center; padding: 3rem 2rem;
+      position: relative; z-index: 1;
+    }
+    .footer-title { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; color: var(--paper); letter-spacing: 0.3em; margin-bottom: 0.5rem; }
+    .footer-address { font-size: 0.78rem; letter-spacing: 0.1em; color: var(--stone); margin-bottom: 2rem; line-height: 1.8; }
+    .footer-divider { width: 40px; height: 1px; background: var(--gold); margin: 0 auto 1.5rem; }
+    .footer-copy { font-size: 0.7rem; color: var(--stone); letter-spacing: 0.1em; }
+
+    /* ─── レスポンシブ ─── */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .history-top { grid-template-columns: 1fr; }
+      .timeline::before { left: 80px; }
+      .timeline-year { min-width: 72px; font-size: 0.72rem; }
+      .hondo-gallery { grid-template-columns: 1fr; }
+      .access-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top">福玄寺</a>
+      <ul class="nav-links">
+        <li><a href="#history">歴史・由緒</a></li>
+        <li><a href="#events">年中行事</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#history" class="mobile-link">歴史・由緒</a></li>
+      <li><a href="#events" class="mobile-link">年中行事</a></li>
+      <li><a href="#access" class="mobile-link">アクセス</a></li>
+    </ul>
+  </div>
+
+  <!-- ヒーロー -->
+  <header class="hero" id="top">
+    <div class="hero-ornament"></div>
+    <div class="hero-content">
+      <p class="hero-en">Fukutaniyama Fukugenji Temple</p>
+      <p class="hero-mountain">福谷山</p>
+      <h1 class="hero-title">福玄寺</h1>
+      <p class="hero-subtitle">滋賀県長浜市西浅井町塩津中</p>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">蓮如上人ゆかりの地　琵琶湖北岸に息づく古刹</p>
+    </div>
+    <div class="scroll-hint">scroll</div>
+  </header>
+
+  <!-- 歴史・由緒 -->
+  <section id="history">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">History</span>
+        <h2 class="section-title">歴史・由緒</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- ① 紹介文（左）＋ 外観写真（右） -->
+      <div class="history-top">
+        <div class="history-intro">
+          <p>福谷山福玄寺は、滋賀県長浜市西浅井町塩津中に位置する浄土真宗の寺院です。琵琶湖の北端、塩津の地に静かにたたずみ、地域の御門徒の皆さまの心のよりどころとして長きにわたり歩んでまいりました。</p>
+          <p>浄土真宗の中興の祖・蓮如上人が、琵琶湖の湖中に浮かぶ沖島より、月出村の船頭・三好丸の舟にて湖北の地へたどり着かれ、北陸へ向かわれる陸路の途次に当山へお立ち寄りになったと伝えられております。</p>
+          <p>小さなお寺ではございますが、熱心な御門徒方に支えられ、今日まで法灯を絶やすことなく守り続けてまいりました。</p>
+        </div>
+        <div>
+          <div class="gaikan-frame">
+            <!--
+              ★ 外観写真の差し替え方：
+              1. index.html と同じ場所に images/ フォルダを作成
+              2. 外観写真を images/gaikan.jpg として保存
+              3. 下の <div class="photo-placeholder">〜</div> を削除し、
+                 代わりに次の1行を記述:
+                 <img src="images/gaikan.jpg" alt="福玄寺 外観">
+            -->
+            <div class="photo-placeholder">
+              <span class="ph-icon">🏯</span>
+              <span class="ph-label">外観写真をここに配置</span>
+            </div>
+          </div>
+          <p class="gaikan-caption">福玄寺 外観</p>
+        </div>
+      </div>
+
+      <!-- ② 由緒タイムライン -->
+      <p class="sub-heading">由緒</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">室町時代</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            <strong>蓮如上人のご来訪</strong>
+            浄土真宗の中興の祖・蓮如上人が、琵琶湖の湖中に浮かぶ沖島より、月出村の船頭・三好丸の舟にて湖北の地へたどり着かれました。北陸へ向かわれる陸路の途次に当山にお立ち寄りになったと伝えられています。
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">創建期</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            <strong>山上に開山</strong>
+            当山はもともと現在地よりも高い山の上に建立されており、山号「福谷山」はその地に由来します。塩津の人々の篤い信仰を集める道場として栄えました。
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">戦国時代</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            <strong>織田信長の軍勢による破却</strong>
+            戦国の世、織田信長の軍勢による兵火に遭い、山上の堂宇は破却されました。しかし地域の御門徒は信仰の炎を絶やさず、法灯を守り続けました。
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">再建後</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            <strong>現在地に再建</strong>
+            破却ののち、御門徒の皆さまの尽力により現在の塩津中の地に再建されました。山から里へ、よりいっそう人々の暮らしに寄り添うお寺として歩み始めました。
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">現在</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            <strong>御門徒とともに</strong>
+            小さなお寺ではございますが、熱心な御門徒方に支えられ、法灯を絶やすことなく今日まで受け継がれています。蓮如上人ゆかりの地として、その御縁を大切に守り続けています。
+          </div>
+        </div>
+      </div>
+
+      <!-- ③ 本堂内ギャラリー -->
+      <div class="hondo-gallery-wrap">
+        <p class="sub-heading">本堂</p>
+        <div class="hondo-gallery">
+          <div>
+            <div class="hondo-frame">
+              <!--
+                ★ 本堂内 写真①の差し替え方：
+                images/hondo1.jpg として保存後、下の div を削除して記述:
+                   <img src="images/hondo1.jpg" alt="本堂内①">
+              -->
+              <div class="photo-placeholder">
+                <span class="ph-icon">🪔</span>
+                <span class="ph-label">本堂内 写真①</span>
+              </div>
+            </div>
+            <p class="hondo-caption">本堂内</p>
+          </div>
+          <div>
+            <div class="hondo-frame">
+              <!--
+                ★ 本堂内 写真②の差し替え方：
+                images/hondo2.jpg として保存後、下の div を削除して記述:
+                   <img src="images/hondo2.jpg" alt="本堂内②">
+              -->
+              <div class="photo-placeholder">
+                <span class="ph-icon">🪔</span>
+                <span class="ph-label">本堂内 写真②</span>
+              </div>
+            </div>
+            <p class="hondo-caption">本堂内</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 写真差し替えガイド -->
+      <div class="photo-guide">
+        <strong>📷 写真の差し替え方（GitHubにアップ後）</strong><br>
+        リポジトリに <code>images/</code> フォルダを作成し、以下の3枚を入れてください。<br>
+        <code>images/gaikan.jpg</code>（外観）　
+        <code>images/hondo1.jpg</code>（本堂内①）　
+        <code>images/hondo2.jpg</code>（本堂内②）<br>
+        その後、HTMLのコメント内の説明に従い、プレースホルダーを <code>&lt;img&gt;</code> タグに置き換えるだけで写真が表示されます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 年中行事 -->
+  <section id="events">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Annual Events</span>
+        <h2 class="section-title">年中行事</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-month">一月</div>
+          <div class="event-name">修正会</div>
+          <div class="event-desc">新年を迎え、一年の平和と御門徒の皆さまのご健勝をお祈りする法要です。</div>
+        </div>
+        <div class="event-card">
+          <div class="event-month">三月</div>
+          <div class="event-name">春彼岸会</div>
+          <div class="event-desc">春の彼岸にご先祖様をご供養する法要です。ご家族そろってのお参りをお待ちしています。</div>
+        </div>
+        <div class="event-card">
+          <div class="event-month">八月</div>
+          <div class="event-name">盂蘭盆会</div>
+          <div class="event-desc">先祖の霊をお迎えし、ご供養するお盆の法要です。地域の御門徒の皆さまと共に営まれます。</div>
+        </div>
+        <div class="event-card">
+          <div class="event-month">九月</div>
+          <div class="event-name">秋彼岸会</div>
+          <div class="event-desc">秋の彼岸にご先祖様へのご供養を行う法要です。実りの季節に感謝の心でお参りください。</div>
+        </div>
+        <div class="event-card">
+          <div class="event-month" style="font-size:1.4rem; line-height:1.4;">十月<br>二十日</div>
+          <div class="event-name">報恩講</div>
+          <div class="event-desc">浄土真宗で最も大切な法要。宗祖・親鸞聖人のご恩に感謝し、御法義を聴聞する一年で最も重要な仏事です。毎年十月二十日に営まれます。</div>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:2.5rem; font-size:0.78rem; color:var(--stone); letter-spacing:0.1em;">
+        ※ 行事の日程は変更となる場合があります。詳細はお問い合わせください。
+      </p>
+    </div>
+  </section>
+
+  <!-- アクセス -->
+  <section id="access">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Access</span>
+        <h2 class="section-title">アクセス</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="access-grid">
+        <dl class="access-info">
+          <dt>寺院名</dt>
+          <dd>福谷山 福玄寺<br>（ふくたにさん ふくげんじ）</dd>
+
+          <dt>住所</dt>
+          <dd>〒529-0521<br>滋賀県長浜市西浅井町<br>塩津中367</dd>
+
+          <dt>電車でお越しの方</dt>
+          <dd>JR湖西線「永原駅」より<br>タクシーまたは路線バスをご利用ください</dd>
+
+          <dt>お車でお越しの方</dt>
+          <dd>北陸自動車道「木之本IC」より<br>国道8号・303号経由 約30分</dd>
+
+          <dt>駐車場</dt>
+          <dd>境内に駐車場がございます<br>（普通車 数台）</dd>
+        </dl>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3267.3!2d136.1!3d35.57!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff7b5a3c28a25b7%3A0xa1d6c6ef5ae7e40a!2z56aP55qu5a246KKL56aP546L5a-M!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+            style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="福玄寺 地図">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <p class="footer-title">福谷山 福玄寺</p>
+    <p class="footer-address">〒529-0521 滋賀県長浜市西浅井町塩津中367</p>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">&copy; 福谷山 福玄寺. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const btn  = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', () => menu.classList.toggle('open'));
+    document.querySelectorAll('.mobile-link').forEach(a =>
+      a.addEventListener('click', () => menu.classList.remove('open'))
+    );
+  </script>
+
+</body>
+</html>
