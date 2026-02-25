@@ -186,16 +186,6 @@
       letter-spacing: 0.15em; text-align: center; margin-top: 0.6rem;
     }
 
-    /* プレースホルダー共通 */
-    .photo-placeholder {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 0.8rem;
-      color: var(--stone);
-    }
-    .ph-icon { font-size: 2.5rem; opacity: 0.35; }
-    .ph-label { font-size: 0.72rem; letter-spacing: 0.2em; opacity: 0.55; }
-
     /* 小見出し */
     .sub-heading {
       font-family: 'Shippori Mincho', serif;
@@ -253,20 +243,7 @@
       letter-spacing: 0.15em; text-align: center; margin-top: 0.6rem;
     }
 
-    /* 写真差し替えガイド */
-    .photo-guide {
-      margin-top: 2.5rem;
-      padding: 1.2rem 1.5rem;
-      background: rgba(154,123,46,0.07);
-      border-left: 3px solid var(--gold);
-      font-size: 0.78rem; color: var(--stone); line-height: 1.8;
-    }
-    .photo-guide strong { color: var(--ink); font-weight: 600; }
-    .photo-guide code {
-      font-family: monospace;
-      background: rgba(0,0,0,0.06);
-      padding: 0.1em 0.4em; border-radius: 3px; font-size: 0.85em;
-    }
+
 
     /* ─── 年中行事 ─── */
     #events { background: var(--washi); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -368,7 +345,7 @@
         <div class="section-rule"></div>
       </div>
 
-      <!-- ① 紹介文（左）＋ 外観写真（右） -->
+
       <div class="history-top">
         <div class="history-intro">
           <p>福谷山福玄寺は、滋賀県長浜市西浅井町塩津中に位置する浄土真宗の寺院です。琵琶湖の北端、塩津の地に静かにたたずみ、地域の御門徒の皆さまの心のよりどころとして長きにわたり歩んでまいりました。</p>
@@ -377,24 +354,12 @@
         </div>
         <div>
           <div class="gaikan-frame">
-            <!--
-              ★ 外観写真の差し替え方：
-              1. index.html と同じ場所に images/ フォルダを作成
-              2. 外観写真を images/gaikan.jpg として保存
-              3. 下の <div class="photo-placeholder">〜</div> を削除し、
-                 代わりに次の1行を記述:
-                 <img src="images/gaikan.jpg" alt="福玄寺 外観">
-            -->
-            <div class="photo-placeholder">
-              <span class="ph-icon">🏯</span>
-              <span class="ph-label">外観写真をここに配置</span>
-            </div>
+            <img src="images/gaikan.jpg" alt="福玄寺 外観">
           </div>
           <p class="gaikan-caption">福玄寺 外観</p>
         </div>
       </div>
 
-      <!-- ② 由緒タイムライン -->
       <p class="sub-heading">由緒</p>
       <div class="timeline">
         <div class="timeline-item">
@@ -439,49 +404,22 @@
         </div>
       </div>
 
-      <!-- ③ 本堂内ギャラリー -->
       <div class="hondo-gallery-wrap">
         <p class="sub-heading">本堂</p>
         <div class="hondo-gallery">
           <div>
             <div class="hondo-frame">
-              <!--
-                ★ 本堂内 写真①の差し替え方：
-                images/hondo1.jpg として保存後、下の div を削除して記述:
-                   <img src="images/hondo1.jpg" alt="本堂内①">
-              -->
-              <div class="photo-placeholder">
-                <span class="ph-icon">🪔</span>
-                <span class="ph-label">本堂内 写真①</span>
-              </div>
+              <img src="images/hondo1.jpg" alt="本堂内①">
             </div>
             <p class="hondo-caption">本堂内</p>
           </div>
           <div>
             <div class="hondo-frame">
-              <!--
-                ★ 本堂内 写真②の差し替え方：
-                images/hondo2.jpg として保存後、下の div を削除して記述:
-                   <img src="images/hondo2.jpg" alt="本堂内②">
-              -->
-              <div class="photo-placeholder">
-                <span class="ph-icon">🪔</span>
-                <span class="ph-label">本堂内 写真②</span>
-              </div>
+              <img src="images/hondo2.jpg" alt="本堂内②">
             </div>
             <p class="hondo-caption">本堂内</p>
           </div>
         </div>
-      </div>
-
-      <!-- 写真差し替えガイド -->
-      <div class="photo-guide">
-        <strong>📷 写真の差し替え方（GitHubにアップ後）</strong><br>
-        リポジトリに <code>images/</code> フォルダを作成し、以下の3枚を入れてください。<br>
-        <code>images/gaikan.jpg</code>（外観）　
-        <code>images/hondo1.jpg</code>（本堂内①）　
-        <code>images/hondo2.jpg</code>（本堂内②）<br>
-        その後、HTMLのコメント内の説明に従い、プレースホルダーを <code>&lt;img&gt;</code> タグに置き換えるだけで写真が表示されます。
       </div>
     </div>
   </section>
